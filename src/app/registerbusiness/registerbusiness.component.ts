@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BusinessService } from '../service/business.service';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './registerbusiness.component.html',
   styleUrl: './registerbusiness.component.css'
 })
+
 export class RegisterbusinessComponent implements OnInit {
   registerForm: FormGroup;
   categories: any[] = [];
@@ -130,6 +131,7 @@ export class RegisterbusinessComponent implements OnInit {
   getCategories(): void {
     this.businessService.getCategories().subscribe((data) => {
       this.categories = data;
+      debugger;
       if (!this.FormVal?.CategoryID) {
         this.registerForm.controls['CategoryID'].setValue(data[0]?.categoryID)
         this.getSubCategories();

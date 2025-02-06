@@ -54,3 +54,29 @@ body {
     height: 43px;  
     width: auto;   
   }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  .links {
+    margin-top: 20px;
+  }
+  
+  .links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: blue;
+  }
+  
+  .links a:hover {
+    color: rgb(180, 180, 234)!important;
+    text-decoration: underline;
+  }
