@@ -181,6 +181,7 @@ export class RegisterbusinessComponent implements OnInit {
   }
 
   submit() {
+    debugger;
     const formData = new FormData();
   
     // Append form data
@@ -196,6 +197,7 @@ export class RegisterbusinessComponent implements OnInit {
     // Call the business registration service
     this.businessService.registerBusiness(formData).subscribe({
       next: (response) => {
+        debugger;
         if (response) {
           // Show success popup using SweetAlert2
           Swal.fire({
@@ -208,6 +210,7 @@ export class RegisterbusinessComponent implements OnInit {
           //this.registerForm.reset();
           this.router.navigateByUrl('/login');
         } else {
+          debugger;
           // Show failure popup using SweetAlert2
           Swal.fire({
             icon: 'error',
@@ -218,6 +221,7 @@ export class RegisterbusinessComponent implements OnInit {
         }
       },
       error: (error) => {
+        debugger;
         // Handle errors during registration
         Swal.fire({
           icon: 'error',

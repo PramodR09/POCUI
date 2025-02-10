@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-margin">
   <h2>Search Business</h2>
 
   <!-- Category Section -->
@@ -24,11 +24,12 @@
 
   <!-- Reactive Form -->
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <div class="form-group vertical-center">
     <input class="form-control" formControlName="searchQuery" placeholder="Search..."
     [value]="selectedCategory + (selectedSubCategory ? ',' + selectedSubCategory : '')" />
     <div class="offset-lg-3 col-lg-6">
-    <button class="button-container button" type="submit" (click)="callSearch()">Search</button>
+    <button style="margin-left: 35%;
+        margin-top: 10px;" class="button-container button" type="submit" (click)="callSearch()">Search</button>
   </div>
     </div>
     

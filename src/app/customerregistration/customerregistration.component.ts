@@ -3,6 +3,8 @@ import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { BusinessService } from '../service/business.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customerregistration',
@@ -24,7 +26,7 @@ export class CustomerregistrationComponent implements OnInit {
   zoom = 10;
   marker: google.maps.LatLngLiteral | null = null;
 
-  constructor(private fb: FormBuilder, private businessService: BusinessService) {
+  constructor(private fb: FormBuilder, private businessService: BusinessService, private router: Router) {
     this.cusRegisterForm = this.fb.group({
       Cus_Id: [0],
       Cus_EmailId: ['', [Validators.required, Validators.email]],
@@ -146,19 +148,26 @@ export class CustomerregistrationComponent implements OnInit {
   
     // Check the response data
     if (response?.data === 'pass') {
-      this.showAlert("Saved Successfully", "success");
-      this.cusRegisterForm.reset();
+      Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: 'Successfully registered!',
+                  confirmButtonText: 'OK',
+                });
+                this.router.navigateByUrl('/login');
     } else {
       this.showAlert("Save failed", "error");
     }
   }
   
   private onRegisterError(error: any): void {
-    console.error("Error during registration:", error);
-  
-    // Fallback error message
-    const errorMessage = error?.message || "An unexpected error occurred. Please try again.";
-    this.showAlert(errorMessage, "error");
+     Swal.fire({
+                icon: 'error',
+                title: 'Failed',
+                text: 'Registration failed!',
+                confirmButtonText: 'Try Again',
+              });
+            
     this.cusRegisterForm.reset();
   }
   
