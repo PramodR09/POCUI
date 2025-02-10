@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { LoginService } from '../service/login.service';
 import { Router, RouterLink } from '@angular/router';
 
@@ -56,10 +54,8 @@ export class LoginComponent {
           if (this.responsedata != null && this.responsedata.token) {
             // Store the token in local storage
             localStorage.setItem('token', this.responsedata.token);
-  
             // Show success message with an alert
             alert('Successfully logged in!');
-  
             // Navigate to the business search page
             this.router.navigateByUrl('/Businesssearch');
           } else {
