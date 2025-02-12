@@ -62,7 +62,7 @@ describe('LoginComponent', () => {
     routerSpy.navigateByUrl.and.returnValue(Promise.resolve(true));
   
     // Mock the loginService.onSubmit() to return the mocked response
-    loginServiceSpy.onSubmit.and.returnValue(of(mockResponse));  // Mock observable response
+    loginServiceSpy.onSubmit.and.returnValue(of(mockResponse));  // Mock observable responseo
   
     // Set form values for testing
     component.loginForm.controls['username'].setValue('testuser');
